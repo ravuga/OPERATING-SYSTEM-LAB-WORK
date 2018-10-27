@@ -1,0 +1,29 @@
+Pipes - Used in Interprocess Information Communication
+Types 
+1. Named Pipe
+	-Have a name
+	-System Call :- mkfifo("Name of Pipe","Permissions");
+			mkfifo("Pep1",0777);
+		fifo - First in First Out 		
+	-Used for communicating between Parent and Child process
+		or between two unamed processes.
+	-These are bidirectional.
+	-Can communicate between the process on different networks too.
+	-Named pipes exists in the system even if every I/O operations is 
+		done.
+
+2. Unamed Pipe
+	-Don't Have name
+	-System Call:- pipe(fd);
+			(Creates a unamed pipe and
+			 returns 2 fd- fd[0] and fd[1])		
+	-Used for communication between parent and child process.
+	-They are unidirectional.
+	-They can communicate on local network processes only.
+	-If I/O operations are done and parent/child process terminates 
+		that time only the unamed pipe vanishes.	
+	fd- File Descriptor
+
+Pipe has two parts
+1. write part
+2. read part
