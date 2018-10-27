@@ -1,0 +1,52 @@
+Header Files
+
+#include<pthread.h>
+#include<stdio.h>
+#include<stdlib.h> 
+
+How to compile this type of c Program?
+
+gcc -pthread <filename.c>
+./a.out
+
+Threads
+
+1.Creating Thread
+
+This is used to intialise the thread variable with the desired
+function.
+
+	How to declare thread variable?
+	pthread_t thread_variable;
+	pthread_t is the datatype of the thread.
+Syntax:- int pthread_create(pthread_t *tidp,const pthread_att_t *attr,
+	 void *(*start_rtn) (*void),void *restrict);
+
+*tidp :- Stores the address of the pthread_t variable that is declared.
+*attr :- It contains certain attributes that your thread can contain
+		example:- Priority, size ,etc.
+*(*start_rtn) :- every thread is going to start with function and address 
+		of the function is passed as 3Rd argument.
+*restrict :- Arguments of function that are defined in 3rd parameter.
+
+Note : Every thread created has three unique attributes:- Program Counter,
+	Stack and Register.
+
+example:- pthread_t p;
+	  pthread_create(&p,NULL,<Function name>,<function_parameters>);
+	
+	Note :-1. 2nd Parameter of the function will always be NULL because
+		we are not assigning any attributes to the created thread.
+
+	       2. If you want to pass the argument into the function then use 
+		  structure and pass the address of the object.If not use NULL.
+2. Joining Thread
+After intialisation of thread,a call to pthread_join() blocks the calling 
+thread until the thread with identifier equal to the first argument
+terminators.
+
+Syntax:- int pthread_join(name_of_the_VAriable,attribute);
+
+ 
+
+
