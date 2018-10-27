@@ -1,0 +1,8 @@
+26th April 2018
+Thursday
+
+1.Indexed File Allocation
+
+2.Sequential File Allocation
+
+3.Linked File Allocation
