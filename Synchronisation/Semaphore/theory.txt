@@ -1,0 +1,30 @@
+Header file 
+
+#include<semaphore.h>
+
+Semaphore Variable
+
+Syntax:- sem_t sem_name;
+Example:- sem_t s;
+
+Semaphore Intialisation
+
+Syntax:- sem_init(sem_t *sem,int pshared,int unsigned value);
+
+	pshared :- It indicated that the value of the semaphore variable is 
+		   shared among fork processes.
+		   In Linux semaphore's value is not shared, so the value is 0 
+	unsigned :- Intial value of teh semaphore.
+
+Semaphores
+
+1. Wait()
+This call decrements the value of semaphore.
+Syntax:- int sem_wait(sem_t *sem);
+Example:- sem_wait(&s);
+
+
+2. Post()
+This call increments the value of semaphore.
+Syntax:- int sem_post(sem_t *sem);
+Example:- sem_post(&s);

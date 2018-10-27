@@ -1,0 +1,66 @@
+1st 3 file descriptors cannot be used for process
+stdin<- 0 -> Standard Input
+stdout<- 1 -> Standard Ouput
+stdero<- 2 -> Error
+
+Storage path /dev/tty
+
+1.Create System call 
+Syntax:- int creat(char *filename, mod_t mode);
+
+filename can be given in the form of absolute address or relative address
+mode is always given in Hexadecimal format ex:- 0745
+
+2.Read and Write System Call
+
+Read_Syntax: size_t write(int fd,void *buff,size_t count);
+Write_Syntax: size_t read(int fd,void *buff,size_t count);
+
+fd- file descriptor
+buff- buffer name 
+count - no of characters that are read or to be wriiten
+
+3.Open System Call
+Opening a existing file. If the file is not present then it creates it 
+depenfing on the flag.
+Syntax:- int open(const char *path,int flag1|int flag2...);
+path - Name of the File
+flag1 - Mode of the Command
+
+mode 
+ O_RDONLY
+ O_WRONLY
+ O_RDWR
+ 
+flag2- Status Flag
+
+O_CREAT
+O_TRUNC
+O_SYNC
+O_APPEND
+
+4.Lseek
+This system call is used for positioning a file descriptor and to move or read
+or write offset.
+It cannot be applied to all types of file like socket,fifo or terminals or
+pipe.
+Can be applied to specific location to a disk or tape drive.
+
+file sarts with 0 offset value.
+
+Syntax:- off_t lseek(int fd,off_t offset, int whence);
+off_t :- Data Structure 
+fd:- file descriptor
+offset :- Value in bytes
+whence:- It tells the base point fromwhich offset is to be interpreted and the
+calues can be one of the three
+	1. SEEK_CURRENT - Current location of file
+	2. SEEK_END - End of file
+	3. SEEK_SET - Begining of file
+
+Header Files
+#include<unistd.h>
+#include<sys/types.h>
+	off_t offset defination is stored in it.
+#include<fcntl.h>
+
