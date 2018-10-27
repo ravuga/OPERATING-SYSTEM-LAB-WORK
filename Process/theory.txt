@@ -1,0 +1,32 @@
+Process 
+
+#include<unistd.h>
+#include<sys/types.h>
+#include<sys/wait.h>
+
+1. fork()
+To create new child process
+Syntax:- pid_t p = fork();
+pid_t -> return type stored in contained in Header FIle 
+
+Returns 
+	p<0 -> -ve  No New Proccess is Created
+	p=0 -> Zero New Child Created 
+	p>0 -> Parent Process (Return id of Child Process)
+ 
+2. sleep()
+
+Delay for particular amount of time. Can be applied on Parent and Child 
+process.
+
+Syntax:- sleep(n) [Suffix]
+n:- +ve Integer
+Suffix -> how long (s-> second, m-> minute, h-> hour, d-> days )
+
+3. wait()
+For avoidance of Orphan Child.
+wait(NULL); -> No wait for child Process
+wait(PID); -> Wait signal send to Parent Process to wait for child to complete
+
+
+ 
